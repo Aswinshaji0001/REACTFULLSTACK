@@ -10,6 +10,9 @@
   align-items: center;
   justify-content: center;
 }
+.dis li{
+  list-style-type: none;
+}
 /* Basic Reset */
 * {
   margin: 0;

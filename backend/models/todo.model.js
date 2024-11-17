@@ -1,7 +1,6 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
-const todoSchema = new mongoose.Schema({
+const todoSchema=new mongoose.Schema({
     task:{type:String}
 });
-
-export default mongoose.model.Todos||mongoose.model.apply("Todo",todoSchema);
+export default mongoose.model.Todos||mongoose.model("Todo",todoSchema);

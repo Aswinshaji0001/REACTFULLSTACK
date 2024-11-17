@@ -22,11 +22,13 @@ function App() {
      if(res.status==200){
       const data = await res.json();
       setTodo([...data])
+      getTodos();
      } 
   }
   useEffect(()=>{
     getTodos()
   },[])
+  console.log(todo);
   return (
     <>
      <div className="mains">
@@ -34,11 +36,12 @@ function App() {
           <h1>TODO</h1>
           <input type="text" id="inputField" placeholder="Enter text here" onChange={(e)=>setTask(e.target.value)} />
           <button type="submit" id="submitButton" onClick={addTask}>Submit</button>
-        </div>
+        
         <div className="dis">
           <ul>
-            <li></li>
+            {todo.map((task)=><li key={task._id}>{task.task}</li>)}
           </ul>
+        </div>
         </div>
     </div>
     </>
