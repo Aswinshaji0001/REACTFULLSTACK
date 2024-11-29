@@ -14,7 +14,6 @@ export async function addTodo(req,res){
 
 export async function getTodos(req,res) {
     try {
-        console.log("fetch");
         const todos=await todoSchema.find();
         console.log(todos);
         res.status(200).send(todos)

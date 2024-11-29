@@ -25,6 +25,15 @@ function App() {
       getTodos();
      } 
   }
+  const deleteTask=async(task)=>{
+    const res=await fetch(`http://localhost:3000/api/deletetodo/${task}`,
+      {
+        method:"DELETE",
+        headers:{"Content-Type":"application/json"}
+      }
+    )
+    getTodos();
+  }
   useEffect(()=>{
     getTodos()
   },[])
@@ -39,7 +48,7 @@ function App() {
         
         <div className="dis">
           <ul>
-            {todo.map((task)=><li key={task._id}>{task.task}</li>)}
+            {todo.map((task)=><li key={task._id}>{task.task} <button className='button-24' onClick={()=>deleteTask(task._id)}>Delete</button> </li>)}
           </ul>
         </div>
         </div>
